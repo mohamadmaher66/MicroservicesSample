@@ -31,12 +31,6 @@ namespace APIGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //services.AddSingleton<IConfiguration>(provider => new ConfigurationBuilder()
-            //            .SetBasePath(Directory.GetCurrentDirectory())
-            //            .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
-            //            .AddEnvironmentVariables()
-            //            .Build());
-
             services.AddOcelot(Configuration);
         }
 

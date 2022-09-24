@@ -1,6 +1,8 @@
 ﻿using CustomerMicroservice.DbContext;
 using CustomerMicroservice.DTOs;
+using CustomerMicroservice.GRPCServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Linq;
 
 namespace CustomerMicroservice.Controllers
@@ -9,9 +11,10 @@ namespace CustomerMicroservice.Controllers
     [Route("api/[controller]")]
     public class CustomerController : ControllerBase
     {
-        public CustomerController()
+        private readonly IConfiguration _config;
+        public CustomerController(IConfiguration configuration)
         {
-
+            _config = configuration;
         }
 
         [HttpGet]
@@ -34,6 +37,14 @@ namespace CustomerMicroservice.Controllers
         {
             CustomersData.customers.Add(customer);
             return Ok("Customer added successfully");
+        }
+
+        [HttpGet]
+        [Route("GetAllProductsGRPC")]
+        public IActionResult GetAllProductsGRPC()
+        {
+            ProductsGRPC productsGRPC = new ProductsGRPC(_config);
+            return Ok(productsGRPC.GetAllProducts());
         }
     }
 }

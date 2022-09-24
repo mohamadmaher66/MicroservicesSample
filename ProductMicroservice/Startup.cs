@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProductMicroservice.GRPCServices;
 using ProductMicroservice.RabbitMQ;
 
 namespace ProductMicroservice
@@ -21,6 +22,8 @@ namespace ProductMicroservice
             services.AddControllers();
 
             services.AddSingleton<IMessageProducer, MessageProducer>();
+
+            services.AddGrpc();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -36,6 +39,7 @@ namespace ProductMicroservice
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<GRPCProductsService>();   
                 endpoints.MapControllers();
             });
         }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIGateway", "APIGateway.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductMicroservice", "..\ProductMicroservice\ProductMicroservice.csproj", "{231CACFF-87D0-436D-BE68-6995A36BD437}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerMicroservice", "..\CustomerMicroservice\CustomerMicroservice.csproj", "{28FA6C1B-E202-44C9-A8C4-C2A9C9D1EF77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerMicroservice", "..\CustomerMicroservice\CustomerMicroservice.csproj", "{28FA6C1B-E202-44C9-A8C4-C2A9C9D1EF77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
